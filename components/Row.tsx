@@ -15,6 +15,7 @@ function Row({ title, menus }: Props) {
       </div>
       {menus.map((item) => (
         <RowItem
+          key={item.id}
           id={item.id}
           name={item.name}
           price={item.price}

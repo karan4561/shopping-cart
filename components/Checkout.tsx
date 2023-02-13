@@ -17,7 +17,7 @@ function Checkout({Data}: Props) {
             <div className='flex-col space-x-2'>
                 <p className='items-center pb-6 bg pl-4 text-lg font-serif pt-72 m-auto'>My Bag :</p>   
                 {cartItems.map(item=>(
-                    <CartItem 
+                    <CartItem key={item.id}
                     item={item}
                     Data={Data}/>
                 ))}
