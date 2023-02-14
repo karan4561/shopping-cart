@@ -22,8 +22,8 @@ interface Props {
 export default function Home() {
   const BASE_URL = "https://free-food-menus-api-production.up.railway.app";
 
-  const { cartQuantity, FoodData } = useShoppingCart();
-  console.log("Here it this:",FoodData);
+  const { cartQuantity, FoodData, dataBase } = useShoppingCart();
+  //console.log("Here it this:",FoodData);
 
   return (
     //can be put only in the area that it is being useful => global storage house
@@ -34,14 +34,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="bg-asset">
         <Header />
         <div className="flex flex-row space-x-28">
           <Sidebar />
           <MenuCard
             foodData = {FoodData}
           />
-          {/* <Checkout Data={Data} />  */}
+          <Checkout Data={dataBase} /> 
         </div>
       </main>
       </>

@@ -19,7 +19,7 @@ function Sidebar() {
       </div>
       {categoryMap.map((category) => (
         <button
-          className={`w-[80%] active:underline ${foodType===category.id && "text-red-500"}`}
+          className={`w-[80%] hover:bg-slate-900 py-2 rounded-lg px-2 ease-out transition duration-200 hover:text-xl active:underline ${foodType===category.id && "text-red-500 "}`}
           onClick={() => handleFoodTypeChange(category.id)}
         >
           {category.name}

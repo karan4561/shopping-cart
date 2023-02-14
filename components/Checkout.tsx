@@ -9,6 +9,7 @@ interface Props{
 
 function Checkout({Data}: Props) {
     const {cartQuantity, cartItems} = useShoppingCart();
+    console.log("Cart Items: ", cartItems);
     const x:any = [];
     // Data.map((D:any)=>D.map((D1:any)=>x.push(D1))) 
   return (
@@ -22,9 +23,10 @@ function Checkout({Data}: Props) {
                     Data={Data}/>
                 ))}
 
-                <div className='pt-10 text-2xl font-extrabold underline font-mono'>Grand Total: Rs.{
+                <div className='pt-10 text-2xl font-extrabold underline font-mono'>Grand Total: ₹{
                     cartItems.reduce((total, cartItem) => {
-                        const cart = Object.values(x).find((i:any)=>i.id===cartItem.id)
+                        //const cart = Object.values(x).find((i:any)=>i.id===cartItem.id)
+                        const cart = Data.find((i:any)=>i.id===cartItem.id);
                         return total + (cart?.price||0)*cartItem.quantity},0)
                     }
                 </div>

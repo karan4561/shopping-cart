@@ -3,11 +3,11 @@ import { HeartIcon } from "@heroicons/react/24/solid";
 
 function Header() {
   return (
-    <div className="flex flex-row  pl-16 pt-8 pb-3 border-b-2 text-lg justify-between">
-      <div className="space-x-5">
-        <span className="font-bold text-green-400 underline">Menu</span>
-        <span>About</span>
-        <span>Other Branches</span>
+    <div className="flex flex-row bg-slate-900  pl-16 pt-8 pb-3 border-b-2 text-lg justify-between">
+      <div className="space-x-16">
+        <span className="font-bold cursor-pointer text-green-400 underline">Menu</span>
+        <span className="cursor-pointer hover:underline">About</span>
+        <span className="cursor-pointer hover:underline">Other Branches</span>
       </div>
       <button className="mr-10 border-2 px-6 py-2">
         <span>

@@ -18,6 +18,7 @@ type CartItem = {
 
 type ShoppingCartContext = {
   FoodData: Menu[];
+  dataBase: Menu[];
   foodType: string;
   getItemQuantity: (id: string) => number;
   increaseCartQuantity: (id: string) => void;
@@ -37,9 +38,64 @@ export function ShoppingCartProvider({ children }: Props) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [foodType, setFoodType] = useState<string>("burgers");
   const [data, setData] = useState<any>([]);
+  const [dataBase, setDataBase] = useState<any>([]);
 
   const BASE_URL = "https://free-food-menus-api-production.up.railway.app";
 
+
+
+  
+  const getDataBase = () => {
+
+    fetch(`${BASE_URL}/burgers`)
+      .then((res) => res.json())
+      .then((food) => {
+        //console.log(food);
+        // [Prev: , burgers:{},{},{}]=>[{},{},{},{}]
+        //setData([...Data,burgers])
+        setDataBase([...dataBase,...food]);
+      });
+
+      fetch(`${BASE_URL}/bbqs`)
+      .then((res) => res.json())
+      .then((food) => {
+        //console.log(food);
+        // [Prev: , burgers:{},{},{}]=>[{},{},{},{}]
+        //setData([...Data,burgers])
+        setDataBase([...dataBase,...food]);
+      });
+
+      fetch(`${BASE_URL}/drinks`)
+      .then((res) => res.json())
+      .then((food) => {
+        //console.log(food);
+        // [Prev: , burgers:{},{},{}]=>[{},{},{},{}]
+        //setData([...Data,burgers])
+        setDataBase([...dataBase,...food]);
+      });
+
+      fetch(`${BASE_URL}/chocolates`)
+      .then((res) => res.json())
+      .then((food) => {
+        //console.log(food);
+        // [Prev: , burgers:{},{},{}]=>[{},{},{},{}]
+        //setData([...Data,burgers])
+        setDataBase([...dataBase,...food]);
+      });
+
+      fetch(`${BASE_URL}/pizzas`)
+      .then((res) => res.json())
+      .then((food) => {
+        //console.log(food);
+        // [Prev: , burgers:{},{},{}]=>[{},{},{},{}]
+        //setData([...Data,burgers])
+        setDataBase([...dataBase,...food]);
+      });
+
+  }
+
+  console.log("Here is DataBase", dataBase);
+  
   const fetchDataApi = () => {
     fetch(`${BASE_URL}/${foodType}`)
       .then((res) => res.json())
@@ -57,11 +113,12 @@ export function ShoppingCartProvider({ children }: Props) {
 
   useEffect(() => {
     fetchDataApi();
+    getDataBase();
   }, [foodType]);
 
   const FoodData = data;
 
-  console.log(FoodData);
+  //console.log(FoodData);
 
   function getItemQuantity(id: string) {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
@@ -116,7 +173,8 @@ export function ShoppingCartProvider({ children }: Props) {
         cartQuantity,
         cartItems,
         handleFoodTypeChange,
-        foodType
+        foodType,
+        dataBase
       }}
     >
       {children}

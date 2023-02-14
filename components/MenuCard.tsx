@@ -10,12 +10,12 @@ interface Props {
 
 function MenuCard({ foodData }: Props) {
   const { FoodData } = useShoppingCart();
-  console.log(FoodData);
+  //console.log(FoodData);
   return (
-    <div className="w-[45%]">
+    <div className="w-[35%]">
       <div className="mt-16 ">
         <input
-          className="py-2 pl-3 w-[90%] border-gray-400 border-2"
+          className="py-2 pl-3 w-[85%] border-gray-400 border-2"
           type="text"
           placeholder="Search Food Item..."
         />

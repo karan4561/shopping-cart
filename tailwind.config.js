@@ -17,7 +17,9 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      'asset' : "url('/assets/sep09.jpg')"
+    },
   },
   plugins: [],
 }
