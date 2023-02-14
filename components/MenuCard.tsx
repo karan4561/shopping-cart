@@ -1,17 +1,16 @@
 import React from "react";
 import Row from "components/Row";
 import { Menu } from "typings";
-
+import RowItem from "../components/RowItem";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 interface Props {
-  Burger: Menu[];
-  BBQs: Menu[];
-  Breads: Menu[];
-  Chocolates: Menu[];
-  Drinks: Menu[];
+  foodData: Menu[];
 }
 
-function MenuCard({ Burger, BBQs, Breads, Chocolates, Drinks }: Props) {
+function MenuCard({ foodData }: Props) {
+  const { FoodData } = useShoppingCart();
+  console.log(FoodData);
   return (
     <div className="w-[45%]">
       <div className="mt-16 ">
@@ -36,11 +35,20 @@ function MenuCard({ Burger, BBQs, Breads, Chocolates, Drinks }: Props) {
             />
           </svg>
         </button>
-        <Row title="Burger" menus={Burger}/>
+        {FoodData.map((item) => (
+          <RowItem
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            price={item.price}
+            dsc={item.dsc}
+          />
+        ))}
+        {/* <Row title="Burger" menus={Burger}/>
         <Row title="BBQs" menus={BBQs}/>
         <Row title="Breads" menus={Breads}/>
         <Row title="Chocolates" menus={Chocolates}/>
-        <Row title="Drinks" menus={Drinks}/>
+        <Row title="Drinks" menus={Drinks}/> */}
       </div>
     </div>
   );

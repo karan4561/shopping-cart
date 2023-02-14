@@ -10,19 +10,19 @@ interface Props{
 function Checkout({Data}: Props) {
     const {cartQuantity, cartItems} = useShoppingCart();
     const x:any = [];
-    Data.map((D:any)=>D.map((D1:any)=>x.push(D1))) 
+    // Data.map((D:any)=>D.map((D1:any)=>x.push(D1))) 
   return (
     <div>
         {cartQuantity>0 && (
             <div className='flex-col space-x-2'>
-                <p className='items-center pb-6 bg pl-4 text-lg font-serif pt-72 m-auto'>My Bag :</p>   
+                <p className='items-center pb-6 bg pl-4 text-lg font-serif pt-32 m-auto'>My Bag :</p>   
                 {cartItems.map(item=>(
                     <CartItem key={item.id}
                     item={item}
                     Data={Data}/>
                 ))}
 
-                <div className='pt-16 text-2xl font-extrabold underline font-mono'>Grand Total: Rs.{
+                <div className='pt-10 text-2xl font-extrabold underline font-mono'>Grand Total: Rs.{
                     cartItems.reduce((total, cartItem) => {
                         const cart = Object.values(x).find((i:any)=>i.id===cartItem.id)
                         return total + (cart?.price||0)*cartItem.quantity},0)

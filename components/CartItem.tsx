@@ -27,7 +27,7 @@ export default function CartItem({item, Data}: Props) {
         return null;
     }
   return (
-    <div className='flex-row description space-x-10 text-xl bg-slate-500 space-y-5 justify-between border m-auto'>
+    <div className='flex-row description space-x-5 text-xl bg-slate-500 space-y-5 justify-between mr-4 border m-auto'>
         <div className='pl-2' >{cart.name}</div>
         <div className='pb-4'>{cart.price}</div>
         <div className='pb-4'>x{item.quantity}</div>
