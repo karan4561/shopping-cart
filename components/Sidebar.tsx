@@ -18,12 +18,14 @@ function Sidebar() {
         <hr className="w-16 h-0.5 bg-gray-100 opacity-70 border-0 rounded ml-5 my-6 dark:bg-gray-700" />
       </div>
       {categoryMap.map((category) => (
+        <div key={category.id}>
         <button
-          className={`w-[80%] hover:bg-slate-900 py-2 rounded-lg px-2 ease-out transition duration-200 hover:text-xl active:underline ${foodType===category.id && "text-red-500 "}`}
+           className={`w-[80%] hover:bg-slate-900 py-2 rounded-lg px-2 ease-out transition duration-200 hover:text-xl active:underline ${foodType===category.id && "text-red-500 "}`}
           onClick={() => handleFoodTypeChange(category.id)}
         >
           {category.name}
         </button>
+        </div>
       ))}
     </div>
   );
